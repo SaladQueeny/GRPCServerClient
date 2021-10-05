@@ -1,0 +1,15 @@
+syntax = "proto3";
+package com.example.grpc;
+
+message SimpleRequest {
+  string name = 1;
+  repeated string value = 2;//repeated = List
+}
+
+message SimpleResponce{
+  string data = 1;
+}
+
+service WorkWithDataService{//выполняется на клиенте
+  rpc processing(SimpleRequest) returns (stream SimpleResponce);
+}
